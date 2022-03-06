@@ -1,0 +1,4 @@
+<!--page/component/databases/databases.wxml-->
+<view wx:for="{{list}}">
+<view>商品名：{{item.name}},price:{{item.price}}</view>
+</view>

@@ -1,0 +1,21 @@
+<view class="main">
+<!-- 左侧的分类栏 -->
+    <view class="categroy-left">
+        <view wx:for="{{category}}" wx:key="index" data-index="{{index}}"
+            bindtap="switchTab"
+            class="cate-list {{curIndex === index?'on':''}}">{{item.sort_name}}</view>
+    </view>
+<!-- 右侧的商品展示 -->
+    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+         <block wx:for="{{contents}}" wx:key="index" wx:if="{{item.id===toView}}">
+            <view id="{{item.id}}" class="cate-box">
+                <!-- 商品详情 -->                  
+                        <navigator url="../list/list">
+                            <image src="{{item.img}}"></image>
+                            <view class="classname"><text>{{item.good_name}}</text></view>
+                        </navigator>
+            </view>
+        </block> 
+    </scroll-view>
+
+</view>
